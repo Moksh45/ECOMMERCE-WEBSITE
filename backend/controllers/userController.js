@@ -1,6 +1,7 @@
 const ErrorHander = require("../utils/errorhander")
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel")
+// const sendToken = require("../utils/jwtToken");
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -14,9 +15,11 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
             url: "profilepicUrl"
         }
     });
+    
+    const token = user.getJWTToken();
 
     res.status(200).json({
         success: true,
-        user,
+        token,
     });
 });
