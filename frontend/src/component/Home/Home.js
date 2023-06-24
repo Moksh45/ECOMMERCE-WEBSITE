@@ -5,43 +5,43 @@ import Product from "./Product.js";
 import MetaData from "../layout/MetaData";
 import { getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../layout/Loader/Loader";
 
 
-const product = {
-    name: "T-shirt",
-    images: [{ url: "https://i.ibb.co/DRST11n/1.webp" }],
-    price: "2000",
-    _id: "hello"
-}
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { loading, error, products, productsCount } = useSelector(state => state.product)
+    const { loading = true, error, products, productsCount } = useSelector(state => state.product)
     useEffect(() => {
         dispatch(getProduct());
     }, [dispatch])
     return (
         <Fragment>
+            {loading ? (<Loader />
+            ) : (
+                <Fragment>
 
-            <MetaData title="Maa Provision Stores" />
-            <div className="banner">
-                <h1>Welcome to Maa Provision Stores</h1>
-                <h2>FIND AMAZING PRODUCTS BELOW</h2>
+                    <MetaData title="Maa Provision Stores" />
+                    <div className="banner">
+                        <h1>Welcome to Maa Provision Stores</h1>
+                        <h2>FIND AMAZING PRODUCTS BELOW</h2>
 
 
-                <a href="#container">
-                    <button>
-                        Scroll <CgMouse />
-                    </button>
-                </a>
-            </div>
+                        <a href="#container">
+                            <button>
+                                Scroll <CgMouse />
+                            </button>
+                        </a>
+                    </div>
 
-            <h2 className="homeHeading">Featured Products</h2>
-            <div className="container" id="container">
-                {products && products.map(product => (
-                    <Product product={product} />
-                ))}
-            </div>
+                    <h2 className="homeHeading">Featured Products</h2>
+                    <div className="container" id="container">
+                        {products && products.map(product => (
+                            <Product product={product} />
+                        ))}
+                    </div>
+                </Fragment>
+            )}
         </Fragment>
     );
 };
