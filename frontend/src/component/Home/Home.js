@@ -27,10 +27,10 @@ const Home = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="Maa Provision Store." />
+          <MetaData title="ECOMMERCE" />
 
           <div className="banner">
-            <p>Welcome to Maa Provision Store.</p>
+            <p>Welcome to Ecommerce</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
             <a href="#container">
@@ -45,7 +45,7 @@ const Home = () => {
           <div className="container" id="container">
             {products &&
               products.map((product) => (
-                <ProductCard product={product} />
+                <ProductCard key={product._id} product={product} />
               ))}
           </div>
         </Fragment>

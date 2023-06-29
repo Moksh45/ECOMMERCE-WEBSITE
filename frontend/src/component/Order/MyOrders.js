@@ -73,7 +73,7 @@ const MyOrders = () => {
         id: item._id,
         status: item.orderStatus,
         amount: item.totalPrice,
-      }); 
+      });
     });
 
   useEffect(() => {

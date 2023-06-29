@@ -169,6 +169,7 @@
 
 .reviewCard {
   flex: none;
+
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
   border: 1px solid rgba(56, 56, 56, 0.116);
   width: 30vmax;
@@ -178,7 +179,6 @@
   margin: 1vmax;
   padding: 3vmax;
 }
-
 .reviewCard > img {
   width: 5vmax;
 }
