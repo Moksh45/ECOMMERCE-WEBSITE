@@ -1,5 +1,5 @@
 .banner {
-  background-image: url("../../images/cover.jfif");
+  background-image: url("../../images/cover.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,7 +9,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: black;
 }
 
 .banner > h1 {
@@ -46,7 +46,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 68%, 100% 100%, 100% 100%);
   max-width: 100%;
 }
 
