@@ -15,9 +15,10 @@ const ConfirmOrder = ({ history }) => {
     0
   );
 
-  const shippingCharges = subtotal > 1000 ? 0 : 200;
+  const shippingCharges = subtotal > 400 ? 0 : 40;
 
-  const tax = subtotal * 0.18;
+  // const tax = subtotal * 0.18;
+  const tax = 0;
 
   const totalPrice = subtotal + tax + shippingCharges;
 
@@ -91,9 +92,10 @@ const ConfirmOrder = ({ history }) => {
                 <p>Shipping Charges:</p>
                 <span>₹{shippingCharges}</span>
               </div>
-              <div>
-                <p>GST:</p>
-                <span>₹{tax}</span>
+              <div style={{color:"red"}}>
+                {/* <p>GST:</p>
+                <span>₹{tax}</span> */}
+                Note : Enjoy free shipping on orders of ₹400 or more <br/><br/>₹400 रुपये या उससे अधिक के ऑर्डर पर मुफ़्त शिपिंग का आनंद लें
               </div>
             </div>
 

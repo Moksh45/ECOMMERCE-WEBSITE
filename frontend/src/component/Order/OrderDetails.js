@@ -57,18 +57,8 @@ const OrderDetails = ({ match }) => {
               <Typography>Payment</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
-                  <p
-                    className={
-                      order.paymentInfo &&
-                      order.paymentInfo.status === "succeeded"
-                        ? "greenColor"
-                        : "redColor"
-                    }
-                  >
-                    {order.paymentInfo &&
-                    order.paymentInfo.status === "succeeded"
-                      ? "PAID"
-                      : "NOT PAID"}
+                  <p style={{color:"red"}}>
+                    NOT PAID
                   </p>
                 </div>
 
