@@ -7,6 +7,7 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import Search from "../search/Search"
 
 const Home = () => {
   const alert = useAlert();
@@ -28,7 +29,7 @@ const Home = () => {
       ) : (
         <Fragment>
           <MetaData title="Maa Provision Store." />
-
+          <Search />
           <div className="banner">
             <h1>Welcome to Maa Provision Store.</h1>
             <br/>

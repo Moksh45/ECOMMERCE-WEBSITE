@@ -4,7 +4,6 @@ import "./search.css"
 
 const Search = () => {
     const history = useHistory();
-    const [showNav, setShowNav] = useState(false);
     const [keyword, setKeyword] = useState("");
 
     const searchSubmitHandler = (e) => {
@@ -15,12 +14,10 @@ const Search = () => {
             history.push("/products");
         }
     };
-
+    
     return (
-        <div className="Header">
+        <div className="Search">
             <header>
-                <MenuIcon fontSize="large" onClick={() => setShowNav(!showNav)} />
-
                 <form className="searchBox" onSubmit={searchSubmitHandler}>
                     <input
                         type="text"
@@ -30,9 +27,8 @@ const Search = () => {
                     <input type="submit" value="Search" />
                 </form>
             </header>
-            <Navbar show={showNav} />
         </div>
     );
 }
 
-export default Search
+export default Search;
