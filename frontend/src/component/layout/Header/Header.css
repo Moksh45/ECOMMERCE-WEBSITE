@@ -9,3 +9,57 @@
   height: 56px;
   border-radius: 100%;
 }
+
+header {
+  z-index: 1;
+  padding: 30px;
+  position: fixed;
+  height: 0;
+  cursor: pointer;
+}
+
+
+.white header {
+  height: 30px;
+  z-index: 2;
+  color: white;
+  background: #011627;
+  width: 240px;
+}
+
+.sidenav {
+  z-index: 1;
+  width: 240px;
+  background: #011627;
+  position: fixed;
+  height: 100vh;
+  padding: 90px 30px;
+  left: -100%;
+}
+
+.sidenav.active {
+  left: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+ul li a {
+  color: #eaecef;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+ul li a:hover,
+ul li a.active {
+  background: #172b4d;
+}
