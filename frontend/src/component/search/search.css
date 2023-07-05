@@ -45,10 +45,20 @@
   }
 
   .searchBox input[type="text"] {
-    width: 50%;
+    width: 40%;
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
   }
 
   .searchBox input[type="submit"] {
-    width: 20%;
+    width: 10;
+    padding: 10px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 2px;
   }
 }

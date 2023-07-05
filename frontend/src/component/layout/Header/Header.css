@@ -63,3 +63,13 @@ ul li a:hover,
 ul li a.active {
   background: #172b4d;
 }
+
+@media (max-width: 768px) {
+  .white header {
+    width: 140px;
+  }
+  .sidenav {
+    width: 140px;
+  }
+
+}
