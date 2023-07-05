@@ -7,6 +7,7 @@ import { useAlert } from "react-alert";
 import "./payment.css";
 import { createOrder, clearErrors } from "../../actions/orderAction";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import emailjs from '@emailjs/browser';
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -14,6 +15,7 @@ const Payment = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const payBtn = useRef(null);
+  const mailform = useRef();
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { error } = useSelector((state) => state.newOrder);
@@ -50,11 +52,25 @@ const Payment = ({ history }) => {
           status: result.paymentIntent.status,
         };
         dispatch(createOrder(order));
-        history.push("/success");
-      }
+
+        // Call sendEmail function to send the email
+        emailjs.sendForm('service_3qsylpu', 'template_mu0fwra',mailform.current ,'iMSk9PkW1EFcGDU1T')
+          .then((result) => {
+            console.log(result.text);
+          }, (error) => {
+            console.log(error.text);
+          });
+
+          history.push("/success");
+      };
+
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      if (error.response && error.response.data.message) {
+        alert.error(error.response.data.message);
+      } else {
+        alert.error("An error occurred");
+      }
     }
   };
 
@@ -70,7 +86,7 @@ const Payment = ({ history }) => {
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+        <form className="paymentForm" onSubmit={(e) => submitHandler(e)} ref={mailform}>
           <Typography>Payment</Typography>
           <div>
             <LocalShippingIcon />

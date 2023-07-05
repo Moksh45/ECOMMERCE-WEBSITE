@@ -106,7 +106,7 @@ const UpdateProfile = ({ history }) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-
+                  <p style={{color:"red"}}>Note: Image Size Less Then 400KB</p>
                 <div id="updateProfileImage">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input

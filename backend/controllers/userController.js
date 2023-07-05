@@ -267,26 +267,3 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     message: "User Deleted Successfully",
   });
 });
-
-
-// Send Get Order Mail 
-exports.orderPlaced = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.findOne({ email: "mokshgupta567@gmail.com, wwwvauseth9999@gmail.com" });
-  const message = `Please review your website as an order has been placed through it. \n\n कृपया अपनी वेबसाइट की समीक्षा करें क्योंकि इसके माध्यम से ऑर्डर दिया गया है।`;
-  try {
-    await sendEmail({
-      email: user.email,
-      subject: `Order Place`,
-      message,
-    });
-
-    res.status(200).json({
-      success: true,
-      message: `Email sent to ${user.email} successfully`,
-    });
-  } catch (error) {
-    await user.save({ validateBeforeSave: false });
-
-    return next(new ErrorHander(error.message, 500));
-  }
-});
