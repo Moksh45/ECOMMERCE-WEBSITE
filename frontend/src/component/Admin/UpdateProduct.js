@@ -38,13 +38,27 @@ const UpdateProduct = ({ history, match }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "Camera",
-    "SmartPhones",
+    "Atta, Flours & Sooji",
+    "Dals & Pulses",
+    "Rice & Rice Products",
+    "Spices & Masalas",
+    "Ghee & Butter",
+    "Dry Fruits & Nuts",
+    "Salt, Sugar",
+    "Soya Products",
+    "Refined oil & Sarso tel",
+    "Cold Drink & Beverage",
+    "Chocolate & Candies",
+    "Tea/Chai Patti , Coffee",
+    "Snacks & Namkeen",
+    "Biscuit & Cookies",
+    "Noodle, Pasta",
+    "Ketchup/Sauce",
+    "Pickles & Chutney",
+    "Personal Care",
+    "Home Care",
+    "Home Made papad & Pickles",
+    "Others"
   ];
 
   const productId = match.params.id;
